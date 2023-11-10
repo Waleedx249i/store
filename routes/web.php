@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/store/{vue_capture?}', function () {
+    return view('store');
+})->where('vue_capture', '[\/\w\.-]*')->name('store');
+
+Auth::routes();
 Route::get('/', function () {
-    return view('welcome');
+    return route('store');
 });
+Route::get('/dashbord', [App\Http\Controllers\HomeController::class, 'index'])->name('dashbord');
