@@ -29,6 +29,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('category', CategoryController::class);
     Route::post('/user/logout', [AuthenticationController::class, 'logout']);
     route::get('/dashbord', [DashboardController::class, 'index']);
+    route::get('/dashbord/orders', [DashboardController::class, 'orders']);
 });
 
 
